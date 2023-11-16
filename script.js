@@ -21,6 +21,8 @@ var _typeof = "function" === typeof Symbol && "symbol" === typeof Symbol.iterato
             } else {
                 //获取当前时间
                 const date = new Date().toLocaleDateString().split("/").join("-");
+                //更新前，先清空localStorage本地存储
+                localStorage.removeItem('content_data')
                 //用来存储课评数据
                 var content_data = []
                 //请求数据
@@ -33,7 +35,7 @@ var _typeof = "function" === typeof Symbol && "symbol" === typeof Symbol.iterato
                         start: '2000-07-01',
                         end: date,
                         page: 1,
-                        limit: 6000    //服务器垃圾，请求数量太多会报500错误，可适当减少数量
+                        limit: 5000    //服务器垃圾，请求数量太多会报500错误，可适当减少数量
                     },
                     beforeSend: function () {
                         //教务宝自带的加载动画
@@ -56,7 +58,7 @@ var _typeof = "function" === typeof Symbol && "symbol" === typeof Symbol.iterato
                                 start: '2000-07-01',
                                 end: date,
                                 page: 2,
-                                limit: 6000    //服务器垃圾，请求数量太多会报500错误，可适当减少数量
+                                limit: 5000    //服务器垃圾，请求数量太多会报500错误，可适当减少数量
                             },
                             beforeSend: function () {
                                 //教务宝自带的加载动画
